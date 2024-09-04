@@ -2,6 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { registerLocaleData, CommonModule, DatePipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+// Angular Material Modules
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -31,34 +38,33 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+// Angular CDK Modules
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { PostsService } from 'app/posts.services';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
-import { MainComponent } from './main/main.component';
-import { PlayerComponent } from './player/player.component';
+
+// Third-Party Modules
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { AvatarModule } from 'ngx-avatars';
+import { ContentLoaderModule } from '@ngneat/content-loader';
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
-import { VgCoreModule } from '@videogular/ngx-videogular/core';
+
+// Components
+import { MainComponent } from './main/main.component';
+import { PlayerComponent } from './player/player.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import { SubscribeDialogComponent } from './dialogs/subscribe-dialog/subscribe-dialog.component';
-import { SubscriptionComponent } from './subscription//subscription/subscription.component';
+import { SubscriptionComponent } from './subscription/subscription/subscription.component';
 import { SubscriptionInfoDialogComponent } from './dialogs/subscription-info-dialog/subscription-info-dialog.component';
 import { SettingsComponent } from './settings/settings.component';
-import { NgxFileDropModule } from 'ngx-file-drop';
-import { AvatarModule } from 'ngx-avatars';
-import { ContentLoaderModule } from '@ngneat/content-loader';
-
-import es from '@angular/common/locales/es';
 import { AboutDialogComponent } from './dialogs/about-dialog/about-dialog.component';
 import { VideoInfoDialogComponent } from './dialogs/video-info-dialog/video-info-dialog.component';
 import { ArgModifierDialogComponent, HighlightPipe } from './dialogs/arg-modifier-dialog/arg-modifier-dialog.component';
@@ -156,9 +162,10 @@ registerLocaleData(es, 'es');
         BrowserAnimationsModule,
         MatNativeDateModule,
         MatRadioModule,
-        FormsModule,
         MatInputModule,
         MatSelectModule,
+        MatFormFieldModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         MatToolbarModule,
@@ -212,5 +219,4 @@ registerLocaleData(es, 'es');
     ],
     bootstrap: [AppComponent]
 })
-
 export class AppModule { }
