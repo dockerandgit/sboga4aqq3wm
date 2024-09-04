@@ -103,6 +103,8 @@ import { SortPropertyComponent } from './components/sort-property/sort-property.
 import { OnlyNumberDirective } from './directives/only-number.directive';
 import { ArchiveViewerComponent } from './components/archive-viewer/archive-viewer.component';
 
+import { es } from '@angular/common/locales/es';  // Import locale data
+
 registerLocaleData(es, 'es');
 
 @NgModule({
@@ -157,7 +159,6 @@ registerLocaleData(es, 'es');
         ArchiveViewerComponent
     ],
     imports: [
-        CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
         MatNativeDateModule,
@@ -209,9 +210,8 @@ registerLocaleData(es, 'es');
         AppRoutingModule,
     ],
     providers: [
-        PostsService,
-        { provide: HTTP_INTERCEPTORS, useClass: H401Interceptor, multi: true },
-        DatePipe
+        DatePipe,
+        { provide: HTTP_INTERCEPTORS, useClass: H401Interceptor, multi: true }
     ],
     exports: [
         HighlightPipe,
